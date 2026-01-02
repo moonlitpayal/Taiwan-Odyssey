@@ -1,12 +1,13 @@
 import React from 'react';
 import { X, User, Calendar, Award, Compass, Mountain, Waves, Landmark as Temple, Anchor } from 'lucide-react';
 
-import { REGIONS } from '../constants';
+import { Region } from '../types';
 
 interface PassportProps {
   isOpen: boolean;
   onClose: () => void;
   collectedStamps: string[];
+  regions: Region[];
 }
 
 const RegionIcon = ({ regionId, color, size = 16 }: { regionId: string, color: string, size?: number }) => {
@@ -20,10 +21,10 @@ const RegionIcon = ({ regionId, color, size = 16 }: { regionId: string, color: s
   }
 };
 
-const Passport: React.FC<PassportProps> = ({ isOpen, onClose, collectedStamps }) => {
+const Passport: React.FC<PassportProps> = ({ isOpen, onClose, collectedStamps, regions }) => {
   if (!isOpen) return null;
 
-  const allLandmarks = REGIONS.flatMap(r => r.landmarks.map(l => ({ ...l, regionId: r.id, accentColor: r.accentColor })));
+  const allLandmarks = regions.flatMap(r => r.landmarks.map(l => ({ ...l, regionId: r.id, accentColor: r.accentColor })));
   const stamps = allLandmarks.filter(l => collectedStamps.includes(l.id));
 
   return (
@@ -144,7 +145,7 @@ const Passport: React.FC<PassportProps> = ({ isOpen, onClose, collectedStamps })
               <h3 className="font-mono text-[10px] uppercase tracking-[0.4em] text-white/40">Visas / Chapter Seals</h3>
               <div className="flex space-y-0.5 space-x-2">
                 {['north', 'central', 'east', 'south', 'islands'].map(id => (
-                  <RegionIcon key={id} regionId={id} color={REGIONS.find(r => r.id === id)?.accentColor || '#fff'} size={12} />
+                  <RegionIcon key={id} regionId={id} color={regions.find(r => r.id === id)?.accentColor || '#fff'} size={12} />
                 ))}
               </div>
             </div>

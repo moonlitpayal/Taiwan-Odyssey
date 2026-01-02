@@ -7,6 +7,7 @@ import BentoCard from './components/BentoCard';
 import DiscoveryModal from './components/DiscoveryModal';
 import Passport from './components/Passport';
 import WelcomeBanner from './components/WelcomeBanner';
+import BwaBweiModal from './components/BwaBweiModal';
 
 /* -----------------------------------------------------------------------
    ⚠️ DATABASE MODE: SIMULATION (SANDBOX SAFE)
@@ -53,6 +54,15 @@ const App: React.FC = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   const [showWelcome, setShowWelcome] = useState(false);
+  const [showBwaBwei, setShowBwaBwei] = useState(false);
+
+  // Trigger Bwa Bwei when EXACTLY 12 stamps collected (prevents loop when collecting 13th)
+  useEffect(() => {
+    if (collectedStamps.length === 12) {
+      // Small delay for dramatic effect if it just happened
+      setTimeout(() => setShowBwaBwei(true), 1000);
+    }
+  }, [collectedStamps.length]);
 
   // --- DATA LOADING STRATEGY ---
   useEffect(() => {
@@ -80,7 +90,8 @@ const App: React.FC = () => {
                 image: (l.gallery && l.gallery.length > 0) ? l.gallery[0].url : '',
                 gallery: l.gallery || [],
                 googleMapsUrl: l.google_maps_url,
-                tags: l.specs?.tags || []
+                tags: l.specs?.tags || [],
+                quiz: l.quiz || REGIONS.flatMap(r => r.landmarks).find(local => local.id === l.id)?.quiz, // Merge Quiz Data
               }));
               return { ...region, landmarks: mappedLandmarks };
             }
@@ -330,6 +341,20 @@ const App: React.FC = () => {
         isOpen={isPassportOpen}
         onClose={() => setIsPassportOpen(false)}
         collectedStamps={collectedStamps}
+        regions={appRegions}
+      />
+
+      {/* Bwa Bwei Ritual Modal */}
+      <BwaBweiModal
+        isOpen={showBwaBwei}
+        onClose={() => setShowBwaBwei(false)}
+        onReset={() => {
+          setCollectedStamps([]);
+          localStorage.removeItem('tw_odyssey_stamps');
+          setShowBwaBwei(false);
+          alert("Your stamps have been reset. Begin the journey anew.");
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
       />
 
       {/* Interactive Grainy Layer */}
