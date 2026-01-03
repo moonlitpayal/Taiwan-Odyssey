@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Landmark, Region } from '../types';
-import { X, MapPin, Sparkles, CheckCircle, Compass, Mountain, Waves, Landmark as Temple, Anchor, HelpCircle, ArrowRight, AlertCircle } from 'lucide-react';
+import { X, MapPin, Sparkles, CheckCircle, Compass, Mountain, Waves, Landmark as Temple, Anchor, HelpCircle, ArrowRight, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface DiscoveryModalProps {
   landmark: Landmark;
@@ -135,7 +135,30 @@ const DiscoveryModal: React.FC<DiscoveryModalProps> = ({
                 alt={landmark.gallery[currentImageIndex].caption || landmark.name}
                 className="h-full w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-110"
               />
-              {/* Gallery Navigation */}
+              {/* Gallery Navigation Arrows */}
+              {landmark.gallery.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImageIndex((prev) => (prev === 0 ? landmark.gallery!.length - 1 : prev - 1));
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/60 text-white/70 hover:text-white backdrop-blur-sm border border-white/10 transition-all opacity-0 group-hover:opacity-100 duration-300"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImageIndex((prev) => (prev === landmark.gallery!.length - 1 ? 0 : prev + 1));
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/30 hover:bg-black/60 text-white/70 hover:text-white backdrop-blur-sm border border-white/10 transition-all opacity-0 group-hover:opacity-100 duration-300"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
+              {/* Gallery Navigation Dots */}
               {landmark.gallery.length > 1 && (
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-20">
                   {landmark.gallery.map((_, idx) => (

@@ -15,8 +15,16 @@ export const REGIONS: Region[] = [
         id: 'taipei-101',
         name: 'Taipei 101',
         description: 'Once the world\'s tallest, a bamboo-inspired icon of resilience.',
-        image: 'https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?auto=format&fit=crop&q=80&w=800',
+        image: '/images/taipei-101/01.jpg',
         tags: ['Modern', 'Skyline'],
+        gallery: [
+          { url: '/images/taipei-101/01.jpg', caption: 'The Bamboo Obelisk' },
+          { url: '/images/taipei-101/02.jpg', caption: 'Touching the Sky' },
+          { url: '/images/taipei-101/03.jpg', caption: 'Aerial Majesty' },
+          { url: '/images/taipei-101/04.jpg', caption: 'Night Glow' },
+          { url: '/images/taipei-101/05.png', caption: 'Interior Atrium' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/7TCMZfqQCueKTG1t9',
         quiz: [
           {
             id: 'q1',
@@ -24,6 +32,54 @@ export const REGIONS: Region[] = [
             options: ['A Pagoda', 'A Bamboo Stalk', 'A Dragon', 'A Sword'],
             correctAnswer: 1,
             fact: 'Taipei 101 was designed to look like a growing bamboo stalk, a symbol of eternal strength in Asian culture.'
+          }
+        ]
+      },
+      {
+        id: 'national-palace-museum',
+        name: 'National Palace Museum',
+        description: 'Home to the world\'s finest collection of Chinese art and artifacts, spanning 8,000 years of history.',
+        image: '/images/national-palace-museum/01.jpg',
+        tags: ['History', 'Art'],
+        gallery: [
+          { url: '/images/national-palace-museum/01.jpg', caption: 'Museum Facade' },
+          { url: '/images/national-palace-museum/02.jpg', caption: 'Aerial View' },
+          { url: '/images/national-palace-museum/03.png', caption: 'Palace Grounds' },
+          { url: '/images/national-palace-museum/04.png', caption: 'Internal Architecture' },
+          { url: '/images/national-palace-museum/05.jpg', caption: 'Exhibition Hall' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/a927dZjgN8FNaVtz6',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The National Palace Museum houses artifacts originally from where?',
+            options: ['The Forbidden City', 'The Great Wall', 'The Summer Palace', 'The Ming Tombs'],
+            correctAnswer: 0,
+            fact: 'Most of the collection was originally housed in the Palace Museum in the Forbidden City in Beijing.'
+          }
+        ]
+      },
+      {
+        id: 'chiang-kai-shek-memorial',
+        name: 'Chiang Kai-shek Memorial',
+        description: 'A monument erected in memory of Chiang Kai-shek, former President of the Republic of China.',
+        image: '/images/chiang-kai-shek-memorial/01.png',
+        tags: ['History', 'Monument'],
+        gallery: [
+          { url: '/images/chiang-kai-shek-memorial/01.png', caption: 'Memorial Hall' },
+          { url: '/images/chiang-kai-shek-memorial/02.jpg', caption: 'Liberty Square' },
+          { url: '/images/chiang-kai-shek-memorial/03.png', caption: 'Main Archway' },
+          { url: '/images/chiang-kai-shek-memorial/04.png', caption: 'Sunset View' },
+          { url: '/images/chiang-kai-shek-memorial/05.png', caption: 'Statue' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/HcLmoX8HCdgCp91j6',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The roof of the memorial is blue and octagonal. What does the number 8 represent?',
+            options: ['Infinity', 'Wealth', 'Power', 'Abundance'],
+            correctAnswer: 3,
+            fact: 'The number 8 represents abundance and good fortune in Chinese culture. The octagon shape also avoids the "4" which is associated with death.'
           }
         ]
       },

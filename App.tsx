@@ -39,6 +39,7 @@ const App: React.FC = () => {
   const [currentRegionId, setCurrentRegionId] = useState<RegionID>('north');
   const [appRegions, setAppRegions] = useState<Region[]>(REGIONS);
   const [collectedStamps, setCollectedStamps] = useState<string[]>([]);
+  const [hasWonBwaBwei, setHasWonBwaBwei] = useState(false); // Track if user has won the Ritual
   const [selectedLandmark, setSelectedLandmark] = useState<Landmark | null>(null);
   const [isPassportOpen, setIsPassportOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -57,12 +58,13 @@ const App: React.FC = () => {
   const [showBwaBwei, setShowBwaBwei] = useState(false);
 
   // Trigger Bwa Bwei when EXACTLY 12 stamps collected (prevents loop when collecting 13th)
+  // Trigger Bwa Bwei when EXACTLY 12 stamps collected (prevents loop when collecting 13th)
   useEffect(() => {
-    if (collectedStamps.length === 12) {
+    if (collectedStamps.length === 12 && !hasWonBwaBwei) {
       // Small delay for dramatic effect if it just happened
       setTimeout(() => setShowBwaBwei(true), 1000);
     }
-  }, [collectedStamps.length]);
+  }, [collectedStamps.length, hasWonBwaBwei]);
 
   // --- DATA LOADING STRATEGY ---
   useEffect(() => {
@@ -71,29 +73,66 @@ const App: React.FC = () => {
       const saved = localStorage.getItem('tw_odyssey_stamps');
       if (saved) setCollectedStamps(JSON.parse(saved));
 
+      const won = localStorage.getItem('tw_odyssey_won_bwabwei');
+      if (won === 'true') setHasWonBwaBwei(true);
+
       // 2. Load Landmarks (Real DB Fetch)
       const { data: dbLandmarks } = await supabase.from('landmarks').select('*');
 
       if (dbLandmarks && dbLandmarks.length > 0) {
+
+        // 2a. STRICTLY FILTER OUT our locally managed landmarks from the DB response.
+        // This ensures they NEVER appear from the DB, preventing duplicates in wrong regions.
+        const managedIds = ['taipei-101', 'national-palace-museum', 'chiang-kai-shek-memorial'];
+        const cleanDbLandmarks = dbLandmarks.filter((l: any) =>
+          !managedIds.includes(l.id) &&
+          !l.title.includes('National Palace Museum') &&
+          !l.title.includes('Chiang Kai-shek')
+        );
+
         setAppRegions((prevRegions) =>
           prevRegions.map(region => {
             // Find all DB landmarks for this region
-            const regionLandmarks = dbLandmarks.filter((l: any) => l.region === region.id);
+            const regionLandmarks = cleanDbLandmarks.filter((l: any) => l.region === region.id);
 
             // If DB has data for this region, use it fully (allows adding NEW landmarks)
             if (regionLandmarks.length > 0) {
-              const mappedLandmarks = regionLandmarks.map((l: any) => ({
-                id: l.id,
-                name: l.title, // Map Supabase 'title' -> Frontend 'name'
-                description: l.description,
-                // Handle Gallery or Fallback Image
-                image: (l.gallery && l.gallery.length > 0) ? l.gallery[0].url : '',
-                gallery: l.gallery || [],
-                googleMapsUrl: l.google_maps_url,
-                tags: l.specs?.tags || [],
-                quiz: l.quiz || REGIONS.flatMap(r => r.landmarks).find(local => local.id === l.id)?.quiz, // Merge Quiz Data
-              }));
-              return { ...region, landmarks: mappedLandmarks };
+              const mappedLandmarks = regionLandmarks.map((l: any) => {
+                // FORCE LOCAL DATA for specific landmarks to show new images (Bypassing DB for these items)
+                let overrideId = null;
+                if (l.id === 'taipei-101') overrideId = 'taipei-101';
+
+                // Check for ID OR Title match for NPM
+                if (l.id === 'national-palace-museum' || l.title === 'National Palace Museum' || l.title === 'National Palace Museum 國立故宮博物院') {
+                  overrideId = 'national-palace-museum';
+                }
+                // Check for ID OR Title match for CKSM
+                if (l.id === 'chiang-kai-shek-memorial' || l.title.includes('Chiang Kai-shek') || l.title.includes('CKS Memorial')) {
+                  overrideId = 'chiang-kai-shek-memorial';
+                }
+
+                if (overrideId) {
+                  const localDef = REGIONS.flatMap(r => r.landmarks).find(loc => loc.id === overrideId);
+                  if (localDef) return localDef;
+                }
+
+                return {
+                  id: l.id,
+                  name: l.title, // Map Supabase 'title' -> Frontend 'name'
+                  description: l.description,
+                  // Handle Gallery or Fallback Image
+                  image: (l.gallery && l.gallery.length > 0) ? l.gallery[0].url : '',
+                  gallery: l.gallery || [],
+                  googleMapsUrl: l.google_maps_url,
+                  tags: l.specs?.tags || [],
+                  quiz: l.quiz || REGIONS.flatMap(r => r.landmarks).find(local => local.id === l.id)?.quiz, // Merge Quiz Data
+                }
+              });
+
+              // MERGE: Find local landmarks for this region that are NOT in the DB response
+              const localLandmarks = region.landmarks.filter(l => !regionLandmarks.find((dbL: any) => dbL.id === l.id));
+
+              return { ...region, landmarks: [...mappedLandmarks, ...localLandmarks] };
             }
 
             // Fallback to local if no DB data for this region
@@ -105,10 +144,10 @@ const App: React.FC = () => {
       }
 
       // 3. Welcome Banner Logic
-      const sawWelcome = sessionStorage.getItem('tw_odyssey_welcome_v2');
-      if (!sawWelcome) {
-        setTimeout(() => setShowWelcome(true), 1200);
-      }
+      // const sawWelcome = sessionStorage.getItem('tw_odyssey_welcome_v2'); // BYPASS for demo
+      // if (!sawWelcome) {
+      setTimeout(() => setShowWelcome(true), 1200);
+      // }
 
       // 4. Start App Animation
       setTimeout(() => setIsLoaded(true), 100);
@@ -156,6 +195,13 @@ const App: React.FC = () => {
 
   const handleCollectStamp = (id: string) => {
     if (collectedStamps.includes(id)) return;
+
+    // RULE: Cannot collect more than 12 stamps unless Bwa Bwei is won
+    if (collectedStamps.length >= 12 && !hasWonBwaBwei) {
+      setShowBwaBwei(true);
+      return;
+    }
+
     const newStamps = [...collectedStamps, id];
     setCollectedStamps(newStamps);
     localStorage.setItem('tw_odyssey_stamps', JSON.stringify(newStamps));
@@ -348,6 +394,10 @@ const App: React.FC = () => {
       <BwaBweiModal
         isOpen={showBwaBwei}
         onClose={() => setShowBwaBwei(false)}
+        onWin={() => {
+          setHasWonBwaBwei(true);
+          localStorage.setItem('tw_odyssey_won_bwabwei', 'true');
+        }}
         onReset={() => {
           setCollectedStamps([]);
           localStorage.removeItem('tw_odyssey_stamps');
