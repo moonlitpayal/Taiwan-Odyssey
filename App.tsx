@@ -83,11 +83,38 @@ const App: React.FC = () => {
 
         // 2a. STRICTLY FILTER OUT our locally managed landmarks from the DB response.
         // This ensures they NEVER appear from the DB, preventing duplicates in wrong regions.
-        const managedIds = ['taipei-101', 'national-palace-museum', 'chiang-kai-shek-memorial'];
+        const managedIds = ['taipei-101', 'national-palace-museum', 'chiang-kai-shek-memorial', 'shilin-night-market', 'raohe-night-market', 'longshan-temple', 'jiufen', 'yehliu-geopark', 'houtong-cat-village', 'national-taiwan-university', 'national-tsing-hua-university', 'beitou-thermal-valley', 'tamsui-fishermans-wharf', 'yangmingshan-national-park', 'sun-moon-lake', 'alishan', 'yushan', 'cingjing', 'gaomei-wetlands', 'lugang-old-street', 'taichung-opera-house', 'xitou-monster-village', 'hehuanshan', 'taroko-gorge', 'qixingtan-beach', 'sanxiantai-bridge', 'mr-brown-avenue', 'liyu-lake', 'qingshui-cliffs'];
         const cleanDbLandmarks = dbLandmarks.filter((l: any) =>
           !managedIds.includes(l.id) &&
           !l.title.includes('National Palace Museum') &&
-          !l.title.includes('Chiang Kai-shek')
+          !l.title.includes('Chiang Kai-shek') &&
+          !l.title.includes('Shilin Night') &&
+          !l.title.includes('Raohe') &&
+          !l.title.includes('Longshan') &&
+          !l.title.includes('Yehliu') &&
+          !l.title.includes('Houtong') &&
+          !l.title.includes('National Taiwan Univ') &&
+          !l.title.includes('National Taiwan University') &&
+          !l.title.includes('National Tsing Hua Univ') &&
+          !l.title.includes('Beitou') &&
+          !l.title.includes('Fisherman') &&
+          !l.title.includes('Yangmingshan') &&
+          !l.title.includes('Sun Moon') &&
+          !l.title.includes('Alishan') &&
+          !l.title.includes('Yushan') &&
+          !l.title.includes('Jade Mtn') &&
+          !l.title.includes('Cingjing') &&
+          !l.title.includes('Gaomei') &&
+          !l.title.includes('Lugang') &&
+          !l.title.includes('Taichung Opera') &&
+          !l.title.includes('Xitou') &&
+          !l.title.includes('Hehuanshan') &&
+          !l.title.includes('Taroko') &&
+          !l.title.includes('Qixingtan') &&
+          !l.title.includes('Sanxiantai') &&
+          !l.title.includes('Mr. Brown') &&
+          !l.title.includes('Liyu') &&
+          !l.title.includes('Qingshui')
         );
 
         setAppRegions((prevRegions) =>
@@ -132,7 +159,7 @@ const App: React.FC = () => {
               // MERGE: Find local landmarks for this region that are NOT in the DB response
               const localLandmarks = region.landmarks.filter(l => !regionLandmarks.find((dbL: any) => dbL.id === l.id));
 
-              return { ...region, landmarks: [...mappedLandmarks, ...localLandmarks] };
+              return { ...region, landmarks: [...localLandmarks, ...mappedLandmarks] };
             }
 
             // Fallback to local if no DB data for this region
