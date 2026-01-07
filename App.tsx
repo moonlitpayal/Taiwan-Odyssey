@@ -83,7 +83,7 @@ const App: React.FC = () => {
 
         // 2a. STRICTLY FILTER OUT our locally managed landmarks from the DB response.
         // This ensures they NEVER appear from the DB, preventing duplicates in wrong regions.
-        const managedIds = ['taipei-101', 'national-palace-museum', 'chiang-kai-shek-memorial', 'shilin-night-market', 'raohe-night-market', 'longshan-temple', 'jiufen', 'yehliu-geopark', 'houtong-cat-village', 'national-taiwan-university', 'national-tsing-hua-university', 'beitou-thermal-valley', 'tamsui-fishermans-wharf', 'yangmingshan-national-park', 'sun-moon-lake', 'alishan', 'yushan', 'cingjing', 'gaomei-wetlands', 'lugang-old-street', 'taichung-opera-house', 'xitou-monster-village', 'hehuanshan', 'taroko-gorge', 'qixingtan-beach', 'sanxiantai-bridge', 'mr-brown-avenue', 'liyu-lake', 'qingshui-cliffs'];
+        const managedIds = ['taipei-101', 'national-palace-museum', 'chiang-kai-shek-memorial', 'shilin-night-market', 'raohe-night-market', 'longshan-temple', 'jiufen', 'yehliu-geopark', 'houtong-cat-village', 'national-taiwan-university', 'national-tsing-hua-university', 'beitou-thermal-valley', 'tamsui-fishermans-wharf', 'yangmingshan-national-park', 'sun-moon-lake', 'alishan', 'yushan', 'cingjing', 'gaomei-wetlands', 'lugang-old-street', 'taichung-opera-house', 'xitou-monster-village', 'hehuanshan', 'taroko-gorge', 'qixingtan-beach', 'sanxiantai-bridge', 'mr-brown-avenue', 'liyu-lake', 'qingshui-cliffs', 'luye-highlands', 'duoliang-station', 'sixty-stone-mountain', 'tainan-old-town', 'kaohsiung-harbor', 'kaohsiung-port', 'tainan-confucius-temple', 'anping-tree-house', 'chimei-museum', 'fo-guang-shan', 'dragon-tiger-pagodas', 'pier-2-art-center', 'kenting-national-park', 'kenting', 'sicao-green-tunnel', 'eluanbi-lighthouse', 'tianliao-moon-world', 'penghu-columns', 'green-island', 'orchid-island', 'matsu-islands', 'xiaoliuqiu', 'kinmen', 'guishan-island', 'twin-hearts-weir', 'qinbi-village'];
         const cleanDbLandmarks = dbLandmarks.filter((l: any) =>
           !managedIds.includes(l.id) &&
           !l.title.includes('National Palace Museum') &&
@@ -114,7 +114,30 @@ const App: React.FC = () => {
           !l.title.includes('Sanxiantai') &&
           !l.title.includes('Mr. Brown') &&
           !l.title.includes('Liyu') &&
-          !l.title.includes('Qingshui')
+          !l.title.includes('Qingshui') &&
+          !l.title.includes('Luye') &&
+          !l.title.includes('Duoliang') &&
+          !l.title.includes('Sixty Stone') &&
+          !l.title.includes('Tainan Old') &&
+          !l.title.includes('Kaohsiung') &&
+          !l.title.includes('Tainan Confucius') &&
+          !l.title.includes('Anping Tree') &&
+          !l.title.includes('Chimei') &&
+          !l.title.includes('Fo Guang') &&
+          !l.title.includes('Dragon & Tiger') &&
+          !l.title.includes('Pier-2') &&
+          !l.title.includes('Kenting') &&
+          !l.title.includes('Sicao') &&
+          !l.title.includes('Eluanbi') &&
+          !l.title.includes('Tianliao') &&
+          !l.title.includes('Penghu') &&
+          !l.title.includes('Orchid') &&
+          !l.title.includes('Matsu') &&
+          !l.title.includes('Xiaoliuqiu') &&
+          !l.title.includes('Kinmen') &&
+          !l.title.includes('Guishan') &&
+          !l.title.includes('Twin Hearts') &&
+          !l.title.includes('Qinbi')
         );
 
         setAppRegions((prevRegions) =>

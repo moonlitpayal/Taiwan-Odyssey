@@ -752,6 +752,78 @@ export const REGIONS: Region[] = [
             fact: 'These majestic cliffs are one of the eight wonders of Taiwan and are within Taroko National Park.'
           }
         ]
+      },
+      {
+        id: 'luye-highlands',
+        name: 'Luye Highlands',
+        description: 'A grassy plateau famous for its annual International Balloon Festival and paragliding activities.',
+        image: '/images/luye-highlands/01.jpg',
+        tags: ['Festival', 'Sky', 'Adventure'],
+        gallery: [
+          { url: '/images/luye-highlands/01.jpg', caption: 'Paragliding Action' },
+          { url: '/images/luye-highlands/02.jpg', caption: 'Balloon Close-up' },
+          { url: '/images/luye-highlands/03.png', caption: 'Butterfly Balloon' },
+          { url: '/images/luye-highlands/04.jpg', caption: 'Festival Crowd' },
+          { url: '/images/luye-highlands/05.png', caption: 'Night Glow Show' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/5j7D5BgZfhUE7SNVA',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'Luye Highlands is most famous for hosting which annual summer event?',
+            options: ['Music Festival', 'International Balloon Festival', 'Lantern Festival', 'Kite Festival'],
+            correctAnswer: 1,
+            fact: 'The Taiwan International Balloon Festival turns the sky into a colorful canvas every summer.'
+          }
+        ]
+      },
+      {
+        id: 'duoliang-station',
+        name: 'Duoliang Station',
+        description: 'Known as the "most beautiful station in Taiwan", offering stunning views of trains passing against the backdrop of the Pacific Ocean.',
+        image: '/images/duoliang-station/01.png',
+        tags: ['Train', 'Ocean', 'Scenic'],
+        gallery: [
+          { url: '/images/duoliang-station/01.png', caption: 'Train with Ocean View' },
+          { url: '/images/duoliang-station/02.jpg', caption: 'Red Railings' },
+          { url: '/images/duoliang-station/03.jpg', caption: 'Passing Train' },
+          { url: '/images/duoliang-station/04.jpg', caption: 'Railway Tracks' },
+          { url: '/images/duoliang-station/05.png', caption: 'Station Sign' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/Dir1L6hdqanMHp7eA',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What distinctive feature makes Duoliang Station famous?',
+            options: ['Underground tunnels', 'Red railings by the sea', 'Highest altitude station', 'Oldest steam trains'],
+            correctAnswer: 1,
+            fact: 'The iconic red railings set against the azure Pacific Ocean create a picture-perfect scene.'
+          }
+        ]
+      },
+      {
+        id: 'sixty-stone-mountain',
+        name: 'Sixty Stone Mountain',
+        description: 'Famous for its sea of golden daylilies covering the mountainside in late summer, offering breathtaking views.',
+        image: '/images/sixty-stone-mountain/01.jpg',
+        tags: ['Nature', 'Flowers', 'Mountain'],
+        gallery: [
+          { url: '/images/sixty-stone-mountain/01.jpg', caption: 'Sea of Daylilies' },
+          { url: '/images/sixty-stone-mountain/02.png', caption: 'Mountain Path' },
+          { url: '/images/sixty-stone-mountain/03.jpg', caption: 'Pavilion View' },
+          { url: '/images/sixty-stone-mountain/04.jpg', caption: 'Cloudy Peaks' },
+          { url: '/images/sixty-stone-mountain/05.png', caption: 'Golden Slopes' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/dGCiyBApkKxzmbJM8',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What flower blankets Sixty Stone Mountain in a sea of gold every August and September?',
+            options: ['Sunflowers', 'Daylilies', 'Marigolds', 'Rapeseed'],
+            correctAnswer: 1,
+            fact: 'The blooming daylilies create a spectacular golden carpet across the mountain slopes.'
+          }
+        ]
       }
     ]
   },
@@ -765,11 +837,19 @@ export const REGIONS: Region[] = [
     backgroundImage: 'https://wallpapers.com/images/featured/taiwan-kdq37yluc9yj47v2.jpg',
     landmarks: [
       {
-        id: 'tainan-old',
+        id: 'tainan-old-town',
         name: 'Tainan Old Town',
         description: 'The oldest city on the island, a living museum of temples and forts.',
-        image: 'https://images.unsplash.com/photo-1594917573516-4f40f9947be7?auto=format&fit=crop&q=80&w=800',
-        tags: ['Legacy', 'Culture'],
+        image: '/images/tainan-old-town/01.png',
+        tags: ['History', 'Culture', 'Temples'],
+        gallery: [
+          { url: '/images/tainan-old-town/01.png', caption: 'Old Street Vibes' },
+          { url: '/images/tainan-old-town/02.jpg', caption: 'Lanterns' },
+          { url: '/images/tainan-old-town/03.png', caption: 'Temple Roof' },
+          { url: '/images/tainan-old-town/04.jpg', caption: 'Daily Life' },
+          { url: '/images/tainan-old-town/05.png', caption: 'Historic Architecture' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/AEGwUM2pioNpgcc47',
         quiz: [
           {
             id: 'q1',
@@ -781,27 +861,43 @@ export const REGIONS: Region[] = [
         ]
       },
       {
-        id: 'kenting',
-        name: 'Kenting Park',
-        description: 'White sands and coral reefs at the southernmost tip of Taiwan.',
-        image: 'https://images.unsplash.com/photo-1560942485-b2a11cc13456?auto=format&fit=crop&q=80&w=800',
-        tags: ['Tropical', 'Surf'],
+        id: 'kenting-national-park',
+        name: 'Kenting National Park',
+        description: 'Taiwan\'s oldest national park, famous for its tropical beaches, coral reefs, and vibrant night markets.',
+        image: '/images/kenting-national-park/01.png',
+        tags: ['Tropical', 'Beach', 'Nature'],
+        gallery: [
+          { url: '/images/kenting-national-park/01.png', caption: 'Coastal View' },
+          { url: '/images/kenting-national-park/02.png', caption: 'Sunset Shore' },
+          { url: '/images/kenting-national-park/03.png', caption: 'Rock Formations' },
+          { url: '/images/kenting-national-park/04.jpg', caption: 'Ocean Wave' },
+          { url: '/images/kenting-national-park/05.png', caption: 'Green Cliffs' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/oTf3RLaggkkWzEUB6',
         quiz: [
           {
             id: 'q1',
-            question: 'Kenting is famous for hosting wind-based festivals because of...',
-            options: ['The Downhill Winds', 'The Typhoons', 'The Gentle Breeze', 'The Humidity'],
+            question: 'Kenting is famous for its unique "Downhill Wind" phenomena that occur in winter. What specifically thrives because of this wind?',
+            options: ['Onions', 'Mangoes', 'Pineapples', 'Tea Leaves'],
             correctAnswer: 0,
-            fact: 'The strong "Downhill Winds" (Katabatic winds) in winter make it perfect for kite festivals.'
+            fact: 'The strong katabatic winds make the local onions notoriously sweet and flavorful, a specialty of the Hengchun Peninsula.'
           }
         ]
       },
       {
-        id: 'kaohsiung-port',
+        id: 'kaohsiung-harbor',
         name: 'Kaohsiung Harbor',
-        description: 'A massive industrial port transformed into an art and design hub.',
-        image: 'https://images.unsplash.com/photo-1610476044739-166d40398642?auto=format&fit=crop&q=80&w=800',
-        tags: ['Art', 'Modern'],
+        description: 'A massive industrial port transformed into an art and design hub, featuring the iconic Music Center and Pier-2.',
+        image: '/images/kaohsiung-harbor/01.jpg',
+        tags: ['Art', 'Modern', 'Port'],
+        gallery: [
+          { url: '/images/kaohsiung-harbor/01.jpg', caption: 'Cruise at Port' },
+          { url: '/images/kaohsiung-harbor/02.jpg', caption: 'Harbor Aerial' },
+          { url: '/images/kaohsiung-harbor/03.jpg', caption: 'City Night View' },
+          { url: '/images/kaohsiung-harbor/04.png', caption: 'Music Center Glow' },
+          { url: '/images/kaohsiung-harbor/05.jpg', caption: 'Music Center Reflection' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/kANk1oMdDjYdnwCm6',
         quiz: [
           {
             id: 'q1',
@@ -809,6 +905,222 @@ export const REGIONS: Region[] = [
             options: ['A School', 'Abandoned Warehouses', 'A Military Fort', 'A Shopping Mall'],
             correctAnswer: 1,
             fact: 'It was a cluster of abandoned sugar warehouses before being revitalized into an arts district.'
+          }
+        ]
+      },
+      {
+        id: 'tainan-confucius-temple',
+        name: 'Tainan Confucius Temple',
+        description: 'The "First School in Taiwan", a serene complex of red walls and banyan trees dedicated to Confucius.',
+        image: '/images/tainan-confucius-temple/01.jpg',
+        tags: ['History', 'Culture', 'Education'],
+        gallery: [
+          { url: '/images/tainan-confucius-temple/01.jpg', caption: 'Main Dacheng Hall' },
+          { url: '/images/tainan-confucius-temple/02.jpg', caption: 'Tranquil Courtyard' },
+          { url: '/images/tainan-confucius-temple/03.jpg', caption: 'Temple Details' },
+          { url: '/images/tainan-confucius-temple/04.jpg', caption: 'Roof Ornament' },
+          { url: '/images/tainan-confucius-temple/05.jpg', caption: 'Ancient Classroom' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/Wzaw6KhScBcjxzmt7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What is the Tainan Confucius Temple famously known as?',
+            options: ['The First Temple', 'The First School in Taiwan', 'The Red Fort', 'The Scholar\'s Retreat'],
+            correctAnswer: 1,
+            fact: 'Built in 1665, it served as the highest official institute of learning on the island for centuries.'
+          }
+        ]
+      },
+      {
+        id: 'anping-tree-house',
+        name: 'Anping Tree House',
+        description: 'A former warehouse reclaimed by nature, where massive banyan roots have swallowed the brick walls.',
+        image: '/images/anping-tree-house/01.jpg',
+        tags: ['Nature', 'History', 'Ruins'],
+        gallery: [
+          { url: '/images/anping-tree-house/01.jpg', caption: 'Roots and Bricks' },
+          { url: '/images/anping-tree-house/02.jpg', caption: 'Tree House Interior' },
+          { url: '/images/anping-tree-house/03.jpg', caption: 'Overgrown Structure' },
+          { url: '/images/anping-tree-house/04.png', caption: 'Skywalk View' },
+          { url: '/images/anping-tree-house/05.jpg', caption: 'Nature vs. Man' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/dxNDuxLCKVHUpaBC7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What kind of tree has completely overgrown the former Tait & Co. warehouse?',
+            options: ['Banyan Tree', 'Oak Tree', 'Pine Tree', 'Willow Tree'],
+            correctAnswer: 0,
+            fact: 'The aerial roots of the Banyan trees have become one with the brick walls, creating a living structure.'
+          }
+        ]
+      },
+      {
+        id: 'chimei-museum',
+        name: 'Chimei Museum',
+        description: 'A magnificent private museum housing Western art, musical instruments, and weaponry, known for its European-style architecture.',
+        image: '/images/chimei-museum/01.jpg',
+        tags: ['Art', 'Museum', 'Architecture'],
+        gallery: [
+          { url: '/images/chimei-museum/01.jpg', caption: 'Museum Facade' },
+          { url: '/images/chimei-museum/02.png', caption: 'Apollo Fountain' },
+          { url: '/images/chimei-museum/03.png', caption: 'Art Collection' },
+          { url: '/images/chimei-museum/04.png', caption: 'Sunset View' },
+          { url: '/images/chimei-museum/05.jpg', caption: 'Grand Hall' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/KBQ4u3ro8CcX47m66',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The Chimei Museum is famous for holding the world\'s largest collection of what musical instrument?',
+            options: ['Pianos', 'Violins', 'Flutes', 'Drums'],
+            correctAnswer: 1,
+            fact: 'It houses over 1,300 violins, including priceless works by Antonio Stradivari and Guarneri del Gesù.'
+          }
+        ]
+      },
+      {
+        id: 'fo-guang-shan',
+        name: 'Fo Guang Shan',
+        description: 'The largest Buddhist monastery in Taiwan, featuring towering pagodas and a massive golden Buddha statue.',
+        image: '/images/fo-guang-shan/01.jpg',
+        tags: ['Buddhism', 'Temple', 'Peace'],
+        gallery: [
+          { url: '/images/fo-guang-shan/01.jpg', caption: 'Sunset over Monastery' },
+          { url: '/images/fo-guang-shan/02.jpg', caption: 'Pagoda Path' },
+          { url: '/images/fo-guang-shan/03.png', caption: 'Great Buddha Land' },
+          { url: '/images/fo-guang-shan/04.jpg', caption: 'Temple Complex' },
+          { url: '/images/fo-guang-shan/05.jpg', caption: 'Golden Buddha' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/UiCNsDsoGvqEaTRBA',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What is the most prominent feature of the Fo Guang Shan Buddha Museum?',
+            options: ['A Crystal Pyramid', 'The Big Buddha Statue', 'A Lotus Pond', 'A Jade Palace'],
+            correctAnswer: 1,
+            fact: 'The 108-meter tall Big Buddha statue is the highest seated bronze Buddha in the world.'
+          }
+        ]
+      },
+      {
+        id: 'dragon-tiger-pagodas',
+        name: 'Dragon & Tiger Pagodas',
+        description: 'Vibrant twin pagodas on Lotus Pond, where entering through the dragon\'s mouth and exiting the tiger\'s is said to bring good luck.',
+        image: '/images/dragon-tiger-pagodas/01.jpg',
+        tags: ['Culture', 'Lake', 'Architecture'],
+        gallery: [
+          { url: '/images/dragon-tiger-pagodas/01.jpg', caption: 'Twin Pagodas' },
+          { url: '/images/dragon-tiger-pagodas/02.png', caption: 'Dragon Mouth Entrance' },
+          { url: '/images/dragon-tiger-pagodas/03.png', caption: 'Lotus Pond View' },
+          { url: '/images/dragon-tiger-pagodas/04.png', caption: 'Zigzag Bridge' },
+          { url: '/images/dragon-tiger-pagodas/05.jpg', caption: 'Tiger Exit' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/7kpHWo9c3skaPBV99',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'According to local tradition, how should you visit the Dragon & Tiger Pagodas to turn bad luck into good fortune?',
+            options: ['Enter Tiger mouth, Exit Dragon mouth', 'Enter Dragon mouth, Exit Tiger mouth', 'Climb both towers', 'Walk around them 3 times'],
+            correctAnswer: 1,
+            fact: 'Entering the dragon\'s throat and coming out the tiger\'s mouth symbolizes turning bad luck into good fortune.'
+          }
+        ]
+      },
+      {
+        id: 'pier-2-art-center',
+        name: 'Pier-2 Art Center',
+        description: 'An abandoned warehouse complex transformed into one of Taiwan\'s most vibrant districts for contemporary art and design.',
+        image: '/images/pier-2-art-center/01.jpg',
+        tags: ['Art', 'Design', 'Culture'],
+        gallery: [
+          { url: '/images/pier-2-art-center/01.jpg', caption: 'Warehouse Murals' },
+          { url: '/images/pier-2-art-center/02.png', caption: 'Colorful Installations' },
+          { url: '/images/pier-2-art-center/03.jpg', caption: 'Bookstore Interior' },
+          { url: '/images/pier-2-art-center/04.jpg', caption: 'Train Mural' },
+          { url: '/images/pier-2-art-center/05.png', caption: 'Artist Residence' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/b27R19QARee3DPJV7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What was the original function of the buildings that now make up the Pier-2 Art Center?',
+            options: ['Military Barracks', 'Sugar Warehouses', 'Fish Market', 'Train Station'],
+            correctAnswer: 1,
+            fact: 'The area consists of old warehouses originally used to store sugar and other goods before they were rediscovered and repurposed for art.'
+          }
+        ]
+      },
+      {
+        id: 'sicao-green-tunnel',
+        name: 'Sicao Green Tunnel',
+        description: 'A magical mangrove forest waterway known as "Taiwan\'s Little Amazon", where boat tours glide under a canopy of green.',
+        image: '/images/sicao-green-tunnel/01.jpg',
+        tags: ['Nature', 'Water', 'Scenic'],
+        gallery: [
+          { url: '/images/sicao-green-tunnel/01.jpg', caption: 'Green Canopy Tunnel' },
+          { url: '/images/sicao-green-tunnel/02.jpg', caption: 'Mangrove Roots' },
+          { url: '/images/sicao-green-tunnel/03.png', caption: 'Boat Tour' },
+          { url: '/images/sicao-green-tunnel/04.jpg', caption: 'Sunlight Through Leaves' },
+          { url: '/images/sicao-green-tunnel/05.jpg', caption: 'Wetland Wildlife' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/VbZEtJP2amkdL8bT9',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What gives the Sicao Green Tunnel its famous "green tunnel" appearance?',
+            options: ['Neon lights installed underwater', 'A dense canopy of mangrove trees', 'Algae blooming in the river', 'Green painted walls nearby'],
+            correctAnswer: 1,
+            fact: 'The dense canopy of mangrove trees growing on both sides of the waterway interlock to form a stunning natural green tunnel.'
+          }
+        ]
+      },
+      {
+        id: 'eluanbi-lighthouse',
+        name: 'Eluanbi Lighthouse',
+        description: 'Known as "The Light of East Asia", this historic fortified lighthouse stands at Taiwan\'s southernmost point.',
+        image: '/images/eluanbi-lighthouse/01.png',
+        tags: ['History', 'Coastal', 'Landmark'],
+        gallery: [
+          { url: '/images/eluanbi-lighthouse/01.png', caption: 'Lighthouse Tower' },
+          { url: '/images/eluanbi-lighthouse/02.png', caption: 'Fortified Walls' },
+          { url: '/images/eluanbi-lighthouse/03.jpg', caption: 'Park Grounds' },
+          { url: '/images/eluanbi-lighthouse/04.jpg', caption: 'Ocean View' },
+          { url: '/images/eluanbi-lighthouse/05.png', caption: 'Exhibition Room' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/wJ1Ef4GjY2Qk14E18',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'Why was Eluanbi Lighthouse originally built as a fortress with trenches and gun ports?',
+            options: ['To defend against pirates', 'To protect against local indigenous raids', 'As a military base', 'To store ammunition'],
+            correctAnswer: 1,
+            fact: 'It is one of the few fortified lighthouses in the world, built to protect keepers from raids by local indigenous tribes during the Qing Dynasty.'
+          }
+        ]
+      },
+      {
+        id: 'tianliao-moon-world',
+        name: 'Tianliao Moon World',
+        description: 'A surreal landscape of jagged badlands and mud volcanoes that looks like the surface of the moon.',
+        image: '/images/tianliao-moon-world/01.jpg',
+        tags: ['Nature', 'Geology', 'Unique'],
+        gallery: [
+          { url: '/images/tianliao-moon-world/01.jpg', caption: 'Lunar Landscape' },
+          { url: '/images/tianliao-moon-world/02.png', caption: 'Illuminated Badlands' },
+          { url: '/images/tianliao-moon-world/03.jpg', caption: 'Reflection Pond' },
+          { url: '/images/tianliao-moon-world/04.png', caption: 'Badlands Peaks' },
+          { url: '/images/tianliao-moon-world/05.jpg', caption: 'Wooden Walkway' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/iLNV8j1mx9ANrpMt7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What geological phenomenon causes the "Moon World" landscape?',
+            options: ['Volcanic lava flow', 'Meteor impact', 'Differential erosion of mudstone', 'Ancient coral reef uplift'],
+            correctAnswer: 2,
+            fact: 'The "badlands" topography is formed by the strong erosion of rain and rivers on the soft, salty mudstone, preventing plants from growing.'
           }
         ]
       }
@@ -824,18 +1136,218 @@ export const REGIONS: Region[] = [
     backgroundImage: 'https://biglittleisland.com/wp-content/uploads/2020/01/sanxiantai-island-taiwan.jpg', // Updated by user request
     landmarks: [
       {
-        id: 'penghu',
+        id: 'penghu-columns',
         name: 'Penghu Columns',
-        description: 'Majestic basalt columns rising from the sea, a geological wonder.',
-        image: 'https://images.unsplash.com/photo-1590059294247-4c7caf4524c9',
-        tags: ['Geology', 'Ocean'],
+        description: 'Majestic basalt columns rising from the sea, a geological wonder formed by ancient volcanic lava cooling.',
+        image: '/images/penghu-columns/01.jpg',
+        tags: ['Geology', 'Ocean', 'Nature'],
+        gallery: [
+          { url: '/images/penghu-columns/01.jpg', caption: 'Basalt Formation' },
+          { url: '/images/penghu-columns/02.png', caption: 'Columnar Joints' },
+          { url: '/images/penghu-columns/03.png', caption: 'Coastal View' },
+          { url: '/images/penghu-columns/04.png', caption: 'Sea Cliffs' },
+          { url: '/images/penghu-columns/05.png', caption: 'Vegetation on Rocks' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/K2Zzk2BSBaDJxhBv8',
         quiz: [
           {
             id: 'q1',
-            question: 'The basalt columns in Penghu are formed by...',
-            options: ['Cooling Lava', 'Erosion by Wind', 'Man-made carving', 'Coral growth'],
+            question: 'The basalt columns in Penghu appear in what distinctive shape due to the cooling of lava?',
+            options: ['Hexagonal', 'Circular', 'Triangular', 'Spiral'],
             correctAnswer: 0,
-            fact: 'They were formed by cooling lava from volcanic eruptions millions of years ago.'
+            fact: 'As the lava flow contracted while cooling, it cracked into regular hexagonal columns.'
+          }
+        ]
+      },
+      {
+        id: 'green-island',
+        name: 'Green Island',
+        description: 'A volcanic island known for its saltwater hot springs, stunning coral reefs, and complex history.',
+        image: '/images/green-island/01.png',
+        tags: ['Island', 'Nature', 'History'],
+        gallery: [
+          { url: '/images/green-island/01.png', caption: 'Coastal Formations' },
+          { url: '/images/green-island/02.png', caption: 'Island View' },
+          { url: '/images/green-island/03.png', caption: 'Ocean Cliffs' },
+          { url: '/images/green-island/04.jpg', caption: 'Saltwater Hot Springs' },
+          { url: '/images/green-island/05.jpg', caption: 'Reef Snorkeling' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/ej4ZoaWoa5PQf4Cd6',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'Green Island is home to one of only three accessible underwater saltwater hot springs in the world. What is it called?',
+            options: ['Zhaori Hot Spring', 'Wenshan Hot Spring', 'Beitou Hot Spring', 'Jhiben Hot Spring'],
+            correctAnswer: 0,
+            fact: 'The Zhaori Hot Spring allows visitors to bathe in the warm, saltwater pools right next to the ocean, especially popular at sunrise.'
+          }
+        ]
+      },
+      {
+        id: 'orchid-island',
+        name: 'Orchid Island',
+        description: 'A volcanic island home to the Tao indigenous people, famous for their unique underground houses and flying fish culture.',
+        image: '/images/orchid-island/01.jpg',
+        tags: ['Island', 'Culture', 'Indigenous'],
+        gallery: [
+          { url: '/images/orchid-island/01.jpg', caption: 'Lanyu Coastline' },
+          { url: '/images/orchid-island/02.jpg', caption: 'Island Road' },
+          { url: '/images/orchid-island/03.jpg', caption: 'Natural Pool' },
+          { url: '/images/orchid-island/04.png', caption: 'Ocean Blue' },
+          { url: '/images/orchid-island/05.jpg', caption: 'Mountain View' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/zCmMQN7T3etbnxW49',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The Tao people of Orchid Island are famous for their handcrafted canoes used for catching what?',
+            options: ['Flying Fish', 'Bluefin Tuna', 'Giant Grouper', 'Lobster'],
+            correctAnswer: 0,
+            fact: 'The Flying Fish Festival is the most important annual event for the Tao people, honoring the arrival of the fish which are a staple food source.'
+          }
+        ]
+      },
+      {
+        id: 'matsu-islands',
+        name: 'Matsu Islands',
+        description: 'A front-line archipelago known for its military history, traditional stone houses, and the mesmerizing "Blue Tears" phenomenon.',
+        image: '/images/matsu-islands/02.png',
+        tags: ['Island', 'History', 'Nature'],
+        gallery: [
+          { url: '/images/matsu-islands/01.png', caption: 'Dongyong Lighthouse' },
+          { url: '/images/matsu-islands/02.png', caption: 'Blue Tears' },
+          { url: '/images/matsu-islands/03.jpg', caption: 'Coastal Fortress' },
+          { url: '/images/matsu-islands/04.jpg', caption: 'Qinbi Village' },
+          { url: '/images/matsu-islands/05.png', caption: 'Island Scenic Path' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/dVLMu67h3RYWCwi87',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The famous "Blue Tears" of Matsu are caused by what natural phenomenon?',
+            options: ['Bioluminescent Algae', 'Reflection of City Lights', 'Chemical Pollution', 'Volcanic Sulfur'],
+            correctAnswer: 0,
+            fact: 'The "Blue Tears" are created by bioluminescent algae (dinoflagellates) that glow blue when disturbed by waves or movement.'
+          }
+        ]
+      },
+      {
+        id: 'xiaoliuqiu',
+        name: 'Xiaoliuqiu (Lamay Island)',
+        description: 'A coral island famous for its year-round summer climate, abundant green sea turtles, and iconic Vase Rock.',
+        image: '/images/xiaoliuqiu/01.png',
+        tags: ['Island', 'Marine Life', 'Nature'],
+        gallery: [
+          { url: '/images/xiaoliuqiu/01.png', caption: 'Vase Rock' },
+          { url: '/images/xiaoliuqiu/02.png', caption: 'Coastal View' },
+          { url: '/images/xiaoliuqiu/03.png', caption: 'Coral Reefs' },
+          { url: '/images/xiaoliuqiu/04.jpg', caption: 'Sea Turtle Haven' },
+          { url: '/images/xiaoliuqiu/05.jpg', caption: 'Island Temple' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/FjqFpkndSmxYSVMUA',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'Xiaoliuqiu is one of the best places in the world to swim with which marine animal?',
+            options: ['Green Sea Turtles', 'Great White Sharks', 'Manatees', 'Penguins'],
+            correctAnswer: 0,
+            fact: 'Hundreds of green sea turtles inhabit the waters around Xiaoliuqiu year-round, feeding on the algae-rich coral reefs.'
+          }
+        ]
+      },
+      {
+        id: 'kinmen',
+        name: 'Kinmen (Quemoy)',
+        description: 'A group of islands rich in military history, traditional Fujianese architecture, and wind lion gods.',
+        image: '/images/kinmen/01.png',
+        tags: ['Island', 'History', 'Culture'],
+        gallery: [
+          { url: '/images/kinmen/01.png', caption: 'Jiangong Islet' },
+          { url: '/images/kinmen/02.jpg', caption: 'Zhaishan Tunnel' },
+          { url: '/images/kinmen/03.jpg', caption: 'Oysters of Kinmen' },
+          { url: '/images/kinmen/04.png', caption: 'Art Installation' },
+          { url: '/images/kinmen/05.png', caption: 'View of Xiamen' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/UbPoTsWECQi9HuLX7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'What iconic statues are found throughout Kinmen to protect villages from the wind?',
+            options: ['Wind Lion Gods', 'Stone Dragons', 'Iron Tigers', 'Bronze Eagles'],
+            correctAnswer: 0,
+            fact: 'Wind Lion Gods (Feng Shiye) are stone statues erected to control winds and ward off evil spirits.'
+          }
+        ]
+      },
+      {
+        id: 'guishan-island',
+        name: 'Guishan Island',
+        description: 'A turtle-shaped volcanic island off the coast of Yilan, known for whale watching and its unique "Milky Sea".',
+        image: '/images/guishan-island/02.png',
+        tags: ['Island', 'Volcano', 'Nature'],
+        gallery: [
+          { url: '/images/guishan-island/01.png', caption: 'Harbor View' },
+          { url: '/images/guishan-island/02.png', caption: 'Turtle Shape' },
+          { url: '/images/guishan-island/03.jpg', caption: 'Milky Sea' },
+          { url: '/images/guishan-island/04.png', caption: 'Island Cliffs' },
+          { url: '/images/guishan-island/05.jpg', caption: 'Whale Watching' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/rpNYsWXfih6vxCVE6',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'Guishan Island is one of the few active volcanoes in Taiwan. What unique phenomenon does this create in the surrounding sea?',
+            options: ['Milky Sea', 'Red Tide', 'Black Water', 'Frozen Ocean'],
+            correctAnswer: 0,
+            fact: 'The "Milky Sea" is caused by underwater hot springs releasing sulfur and volcanic gases, turning the blue ocean a milky turquoise color.'
+          }
+        ]
+      },
+      {
+        id: 'twin-hearts-weir',
+        name: 'Twin Hearts Stone Weir',
+        description: 'A romantic double-heart shaped traditional fishing weir in Penghu, originally built to trap fish but now a symbol of love.',
+        image: '/images/twin-hearts-weir/01.jpg',
+        tags: ['Island', 'Heritage', 'Romance'],
+        gallery: [
+          { url: '/images/twin-hearts-weir/01.jpg', caption: 'Twin Hearts View' },
+          { url: '/images/twin-hearts-weir/02.jpg', caption: 'Crystal Waters' },
+          { url: '/images/twin-hearts-weir/03.jpg', caption: 'Stone Structure' },
+          { url: '/images/twin-hearts-weir/04.jpg', caption: 'Ocean Backdrop' },
+          { url: '/images/twin-hearts-weir/05.png', caption: 'Sunset Silhouette' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/HDSVKDbyg1YBzBTc7',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The Twin Hearts Stone Weir was originally constructed for what purpose?',
+            options: ['Trapping Fish', 'Warding off Pirates', 'Wedding Ceremonies', 'Salt Production'],
+            correctAnswer: 0,
+            fact: 'Stone weirs use the tides to trap fish. Fish swim in during high tide and are stranded inside the stone walls as the tide recedes.'
+          }
+        ]
+      },
+      {
+        id: 'qinbi-village',
+        name: 'Qinbi Village',
+        description: 'Often called the "Mediterranean of Taiwan," this well-preserved village in Matsu features traditional Fujianese stone houses overlooking the sea.',
+        image: '/images/qinbi-village/01.jpg',
+        tags: ['Island', 'Heritage', 'Architecture'],
+        gallery: [
+          { url: '/images/qinbi-village/01.jpg', caption: 'Village Overview' },
+          { url: '/images/qinbi-village/02.jpg', caption: 'Turtle Island View' },
+          { url: '/images/qinbi-village/03.jpg', caption: 'Stone Rooftops' },
+          { url: '/images/qinbi-village/04.jpg', caption: 'Sunset Glow' },
+          { url: '/images/qinbi-village/05.jpg', caption: 'Night Scene' }
+        ],
+        googleMapsUrl: 'https://maps.app.goo.gl/3rd1aU12veubALgMA',
+        quiz: [
+          {
+            id: 'q1',
+            question: 'The traditional houses in Qinbi Village are made from what local material?',
+            options: ['Granite', 'Bamboo', 'Red Brick', 'Limestone'],
+            correctAnswer: 0,
+            fact: 'The houses are built with local granite, designed to withstand strong winds and pirate attacks in the past.'
           }
         ]
       }
