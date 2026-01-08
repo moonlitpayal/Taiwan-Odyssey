@@ -1,4 +1,4 @@
-# 🇹🇼 Taiwan Odyssey
+# Taiwan Odyssey
 
 > **A digital artifact born from imagination.**
 
